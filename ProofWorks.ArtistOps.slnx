@@ -1,5 +1,7 @@
 <Solution>
-  <Folder Name="/docs/" />
+  <Folder Name="/docs/">
+    <File Path="mvp-dashboard-direction.md" />
+  </Folder>
   <Folder Name="/infrastructure/" />
   <Folder Name="/src/">
     <Project Path="ProofWorks.ArtistOps.Api/ProofWorks.ArtistOps.Api.csproj" />
