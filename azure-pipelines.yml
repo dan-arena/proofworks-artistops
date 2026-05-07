@@ -15,8 +15,8 @@ steps:
     packageType: 'sdk'
     version: '10.x'
 
-- script: dotnet restore
+- script: dotnet restore ./ProofWorks.ArtistOps.sln
   displayName: 'Restore NuGet Packages'
 
-- script: dotnet build --configuration $(buildConfiguration) --no-restore
+- script: dotnet build ./ProofWorks.ArtistOps.sln --configuration $(buildConfiguration) --no-restore
   displayName: 'Build Solution'
