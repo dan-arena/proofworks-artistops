@@ -4,7 +4,7 @@
   </Folder>
   <Folder Name="/infrastructure/" />
   <Folder Name="/src/">
-    <Project Path="ProofWorks.ArtistOps.Api/ProofWorks.ArtistOps.Api.csproj" />
+    <Project Path="src/ProofWorks.ArtistOps.Api/ProofWorks.ArtistOps.Api.csproj" />
   </Folder>
   <Folder Name="/tests/" />
 </Solution>
