@@ -1,3 +1,6 @@
+using ProofWorks.ArtistOps.Api.Services;
+using ProofWorks.ArtistOps.Api.Services.Interfaces;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -13,6 +16,14 @@ builder.Services.AddCors(options =>
             .AllowAnyHeader()
             .AllowAnyMethod();
     });
+});
+
+builder.Services.AddSingleton<IHealthStatusService, MockChaosHealthService>();
+
+builder.Services.ConfigureHttpJsonOptions(options =>
+{
+    options.SerializerOptions.Converters.Add(
+        new System.Text.Json.Serialization.JsonStringEnumConverter());
 });
 
 var app = builder.Build();
@@ -46,11 +57,23 @@ app.MapGet("/weatherforecast", () =>
 })
 .WithName("GetWeatherForecast");
 
-app.MapGet("/api/status", () => new
+app.MapGet("/api/status", (IHealthStatusService healthStatusService) =>
 {
-    application = "ProofWorks ArtistOps",
-    status = "Running",
-    purpose = "Portfolio-grade artist operations platform demonstrating modern .NET, React, cloud, DevOps, and AI-enabled engineering patterns."
+    var currentStatus = healthStatusService.GetCurrentStatus();
+
+    return new
+    {
+        currentStatus.ServiceName,
+        currentStatus.Status,
+        currentStatus.Timestamp,
+        currentStatus.Message,
+        IsUnstable = healthStatusService.IsCurrentlyUnstable()
+    };
+});
+
+app.MapGet("/api/status/history", (IHealthStatusService healthStatusService) =>
+{
+    return healthStatusService.GetHistory();
 });
 
 app.Run();
