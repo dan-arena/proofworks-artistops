@@ -1,30 +1,214 @@
+:root {
+  background: #0f172a;
+  color: #e5e7eb;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
 body {
   margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
-  background-color: #111827;
-  color: white;
+  min-width: 320px;
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at top, rgba(59, 130, 246, 0.12), transparent 35%),
+    #0f172a;
+}
+
+button,
+select {
+  font: inherit;
 }
 
 .app {
+  min-height: 100vh;
   padding: 2rem;
+  box-sizing: border-box;
+}
+
+.panel {
+  border: 1px solid rgba(148, 163, 184, 0.35);
+  border-radius: 18px;
+  background: rgba(15, 23, 42, 0.86);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+}
+
+.dashboard-panel {
+  min-height: 360px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+h1 {
+  margin: 0 0 1.75rem;
+  color: #d1d5db;
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  letter-spacing: -0.05em;
+}
+
+h2 {
+  margin: 0 0 0.75rem;
+  font-size: 1.85rem;
+  color: #e5e7eb;
+}
+
+.loading,
+.hint {
+  color: #cbd5e1;
 }
 
 .status-card {
-  margin-top: 2rem;
-  padding: 1.5rem;
-  border-radius: 16px;
-  width: 450px;
-  transition: background-color 0.3s ease;
+  width: min(520px, 90vw);
+  padding: 1.6rem 2rem;
+  border-radius: 18px;
+  border: 1px solid rgba(226, 232, 240, 0.28);
+  color: #f8fafc;
+  text-align: center;
+  cursor: pointer;
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease,
+    background-color 0.3s ease;
+}
+
+.status-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.35);
+}
+
+.status-card p {
+  margin: 0.35rem 0;
+  font-size: 1rem;
 }
 
 .healthy {
-  background-color: #166534;
+  background: linear-gradient(135deg, #166534, #14532d);
 }
 
 .warning {
-  background-color: #a16207;
+  background: linear-gradient(135deg, #a16207, #713f12);
 }
 
 .unhealthy {
-  background-color: #991b1b;
+  background: linear-gradient(135deg, #991b1b, #7f1d1d);
+}
+
+.status-value,
+.ok-text {
+  color: #86efac;
+  font-weight: 700;
+}
+
+.danger-text {
+  color: #fecaca;
+  font-weight: 700;
+}
+
+.history-panel {
+  padding: 1.5rem;
+}
+
+.history-header {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.history-header h1 {
+  margin: 0;
+  font-size: clamp(2rem, 4vw, 3.5rem);
+}
+
+.secondary-button {
+  padding: 0.75rem 1rem;
+  border-radius: 10px;
+  border: 1px solid rgba(148, 163, 184, 0.35);
+  background: rgba(30, 41, 59, 0.9);
+  color: #e5e7eb;
+  cursor: pointer;
+}
+
+.secondary-button:hover {
+  background: rgba(51, 65, 85, 0.95);
+}
+
+.filter-row {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin: 1rem 0;
+  color: #e5e7eb;
+  font-weight: 700;
+}
+
+.filter-row select {
+  padding: 0.65rem 2.5rem 0.65rem 0.85rem;
+  border-radius: 10px;
+  border: 1px solid rgba(148, 163, 184, 0.35);
+  background: #1e293b;
+  color: #e5e7eb;
+}
+
+.table-shell {
+  overflow-x: auto;
+  border: 1px solid rgba(148, 163, 184, 0.35);
+  border-radius: 14px;
+}
+
+.history-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 820px;
+}
+
+.history-table th,
+.history-table td {
+  padding: 0.85rem 1rem;
+  text-align: left;
+  border-bottom: 1px solid rgba(148, 163, 184, 0.22);
+}
+
+.history-table th {
+  background: rgba(30, 41, 59, 0.95);
+  color: #e5e7eb;
+  font-weight: 800;
+}
+
+.history-table tbody tr:nth-child(even) {
+  background: rgba(30, 41, 59, 0.35);
+}
+
+.history-table tbody tr:hover {
+  background: rgba(59, 130, 246, 0.12);
+}
+
+.status-badge {
+  display: inline-flex;
+  min-width: 92px;
+  justify-content: center;
+  padding: 0.35rem 0.65rem;
+  border-radius: 8px;
+  font-weight: 800;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+}
+
+.healthy-badge {
+  background: #166534;
+  color: #dcfce7;
+}
+
+.warning-badge {
+  background: #a16207;
+  color: #fef3c7;
+}
+
+.unhealthy-badge {
+  background: #991b1b;
+  color: #fee2e2;
+}
+
+.table-footer {
+  margin: 1rem 0 0;
+  color: #cbd5e1;
 }
