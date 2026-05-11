@@ -89,8 +89,16 @@ h2 {
   background: linear-gradient(135deg, #a16207, #713f12);
 }
 
-.unhealthy {
+.at-risk {
+  background: linear-gradient(135deg, #ea580c, #9a3412);
+}
+
+.failure {
   background: linear-gradient(135deg, #991b1b, #7f1d1d);
+}
+
+.unavailable {
+  background: linear-gradient(135deg, #1d4ed8, #1e3a8a);
 }
 
 .status-value,
@@ -203,9 +211,19 @@ h2 {
   color: #fef3c7;
 }
 
-.unhealthy-badge {
+.at-risk-badge {
+  background: #ea580c;
+  color: #ffedd5;
+}
+
+.failure-badge {
   background: #991b1b;
   color: #fee2e2;
+}
+
+.unavailable-badge {
+  background: #2563eb;
+  color: #dbeafe;
 }
 
 .table-footer {

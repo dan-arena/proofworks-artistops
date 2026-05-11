@@ -11,7 +11,7 @@ type StatusResponse = {
 
 type StatusEvent = {
   serviceName: string
-  status: string
+  signalType: string
   timestamp: string
   message: string
 }
@@ -64,10 +64,19 @@ function App() {
     switch (currentStatus) {
       case 'Healthy':
         return 'status-card healthy'
+
       case 'Warning':
         return 'status-card warning'
-      case 'Unhealthy':
-        return 'status-card unhealthy'
+
+      case 'AtRisk':
+        return 'status-card at-risk'
+
+      case 'Failure':
+        return 'status-card failure'
+
+      case 'Unavailable':
+        return 'status-card unavailable'
+
       default:
         return 'status-card'
     }
@@ -77,10 +86,12 @@ function App() {
     switch (currentStatus) {
       case 'Healthy':
         return 'status-badge healthy-badge'
-      case 'Warning':
+      case 'Degraded':
         return 'status-badge warning-badge'
-      case 'Unhealthy':
-        return 'status-badge unhealthy-badge'
+      case 'Failed':
+        return 'status-badge failure-badge'
+      case 'Unavailable':
+        return 'status-badge unavailable-badge'
       default:
         return 'status-badge'
     }
@@ -120,7 +131,7 @@ function App() {
                 <tr>
                   <th>Timestamp</th>
                   <th>Service</th>
-                  <th>Status</th>
+                  <th>Signal</th>
                   <th>Message</th>
                 </tr>
               </thead>
@@ -131,8 +142,8 @@ function App() {
                     <td>{new Date(event.timestamp).toLocaleTimeString()}</td>
                     <td>{event.serviceName}</td>
                     <td>
-                      <span className={getStatusBadgeClass(event.status)}>
-                        {event.status}
+                      <span className={getStatusBadgeClass(event.signalType)}>
+                        {event.signalType}
                       </span>
                     </td>
                     <td>{event.message}</td>
