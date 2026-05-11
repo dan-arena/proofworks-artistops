@@ -5,7 +5,7 @@ namespace ProofWorks.ArtistOps.Api.Services.Interfaces
     public interface IHealthStatusService
     {
         IReadOnlyCollection<StatusEvent> GetHistory();
-        StatusEvent GetCurrentStatus();
+        HealthStatusResponse GetCurrentStatus();
         bool IsCurrentlyUnstable();
     }
 }

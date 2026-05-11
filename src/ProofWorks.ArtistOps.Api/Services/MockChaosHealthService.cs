@@ -22,20 +22,45 @@ public class MockChaosHealthService : IHealthStatusService
             .ToList();
     }
 
-    public StatusEvent GetCurrentStatus()
+    public HealthStatusResponse GetCurrentStatus()
     {
         GenerateRandomEvent();
 
-        return _statusEvents
+        var now = DateTimeOffset.UtcNow;
+        var windowStart = now.AddMinutes(-5);
+
+        var eventsInWindow = _statusEvents
+            .Where(e => e.Timestamp >= windowStart && e.Timestamp <= now)
+            .ToList();
+
+        var degradedEvents = eventsInWindow.Count(e => e.SignalType == HealthSignalType.Degraded);
+        var failedEvents = eventsInWindow.Count(e => e.SignalType == HealthSignalType.Failed);
+
+        var latestSignal = _statusEvents
             .OrderByDescending(e => e.Timestamp)
-            .First();
+            .First()
+            .SignalType;
+
+        var status = DetermineStatus(latestSignal, eventsInWindow.Count, degradedEvents, failedEvents);
+
+        return new HealthStatusResponse
+        {
+            ServiceName = "ArtistOps API",
+            Status = status,
+            Timestamp = now,
+            Message = GetStatusMessage(status),
+            IsUnstable = status is ServiceHealthStatus.AtRisk or ServiceHealthStatus.Failure,
+            TotalEventsInWindow = eventsInWindow.Count,
+            DegradedEventsInWindow = degradedEvents,
+            FailedEventsInWindow = failedEvents
+        };
     }
 
     public bool IsCurrentlyUnstable()
     {
         return _statusEvents.HasThresholdWithinTrailingWindow(
             e => e.Timestamp,
-            e => e.Status is ServiceStatus.Warning or ServiceStatus.Unhealthy,
+            e => e.SignalType is HealthSignalType.Degraded or HealthSignalType.Failed,
             TimeSpan.FromMinutes(5),
             3,
             DateTimeOffset.UtcNow);
@@ -45,24 +70,24 @@ public class MockChaosHealthService : IHealthStatusService
     {
         var roll = _random.Next(1, 101);
 
-        var status = roll switch
+        var signalType = roll switch
         {
-            <= 70 => ServiceStatus.Healthy,
-            <= 90 => ServiceStatus.Warning,
-            _ => ServiceStatus.Unhealthy
+            <= 80 => HealthSignalType.Healthy,
+            <= 95 => HealthSignalType.Degraded,
+            _ => HealthSignalType.Failed
         };
 
         _statusEvents.Add(new StatusEvent
         {
             ServiceName = "ArtistOps API",
-            Status = status,
+            SignalType = signalType,
             Timestamp = DateTimeOffset.UtcNow,
-            Message = status switch
+            Message = signalType switch
             {
-                ServiceStatus.Healthy => "All systems operational",
-                ServiceStatus.Warning => "Elevated latency detected",
-                ServiceStatus.Unhealthy => "Service degradation detected",
-                _ => "Unknown state"
+                HealthSignalType.Healthy => "API responded normally",
+                HealthSignalType.Degraded => "Elevated latency detected",
+                HealthSignalType.Failed => "API request failed",
+                _ => "Unknown signal"
             }
         });
 
@@ -82,5 +107,36 @@ public class MockChaosHealthService : IHealthStatusService
         {
             GenerateRandomEvent();
         }
+    }
+
+    private static ServiceHealthStatus DetermineStatus(
+    HealthSignalType latestSignal,
+    int totalEvents,
+    int degradedEvents,
+    int failedEvents)
+    {
+        if (latestSignal == HealthSignalType.Failed)
+            return ServiceHealthStatus.Failure;
+
+        if (totalEvents > 0 && (double)(degradedEvents + failedEvents) / totalEvents >= 0.30)
+            return ServiceHealthStatus.AtRisk;
+
+        if (latestSignal == HealthSignalType.Degraded)
+            return ServiceHealthStatus.Warning;
+
+        return ServiceHealthStatus.Healthy;
+    }
+
+    private static string GetStatusMessage(ServiceHealthStatus status)
+    {
+        return status switch
+        {
+            ServiceHealthStatus.Healthy => "API is running normally",
+            ServiceHealthStatus.Warning => "Temporary degraded signal detected",
+            ServiceHealthStatus.AtRisk => "Recent degraded signal pattern indicates elevated outage risk",
+            ServiceHealthStatus.Failure => "Repeated failures indicate the API is not operational",
+            ServiceHealthStatus.Unavailable => "Service is intentionally unavailable",
+            _ => "Unknown service state"
+        };
     }
 }
