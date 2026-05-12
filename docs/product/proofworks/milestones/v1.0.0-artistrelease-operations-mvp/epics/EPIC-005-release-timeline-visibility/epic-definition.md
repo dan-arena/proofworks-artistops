@@ -1,4 +1,4 @@
-# Feature Requirements
+# Epic Definition
 
 ## EPIC-005
 
@@ -10,14 +10,14 @@
 
 Timeline Visibility provides operational awareness into release schedules, approaching deadlines, and near-term workflow pressure within the Artist Release Operations platform.
 
-This feature establishes chronological operational coordination workflows by allowing operators to understand:
+This Epic establishes chronological operational coordination workflows by allowing operators to understand:
 
 - what releases are approaching
 - what deadlines require attention
 - where operational pressure exists
 - how operational work is distributed over time
 
-The feature should remain focused on operational scheduling visibility rather than advanced project planning or dependency management.
+The Epic should remain focused on operational scheduling visibility rather than advanced project planning or dependency management.
 
 ---
 
@@ -32,7 +32,7 @@ Timeline Visibility should enable operators to:
 - coordinate release sequencing
 - improve release readiness awareness
 
-The feature should support operational coordination rather than predictive scheduling workflows.
+The system should support operational coordination rather than predictive scheduling workflows.
 
 ---
 
@@ -80,45 +80,133 @@ Release timelines should prioritize chronological clarity and operational readab
 
 ---
 
-# Upcoming Release Visibility Requirements
+# Proposed Feature Decomposition
 
-Operators should be able to identify:
+The following Features are proposed as part of the Timeline Visibility Epic.
 
-- releases approaching target dates
-- upcoming operational deadlines
-- near-term release coordination pressure
+Feature boundaries are intentionally focused on independently valuable operational capabilities.
 
-Upcoming releases should remain clearly visible within timeline workflows.
+Architecture will later refine repository boundaries, implementation decomposition, and Story slicing guidance.
 
 ---
 
-# Chronological Organization Requirements
+## FEATURE-001
+# Upcoming Release Visibility
 
-Timeline workflows should organize operational information chronologically.
+### Purpose
 
-The system should support:
+Provide visibility into upcoming scheduled releases.
 
-- chronological release ordering
-- upcoming deadline visibility
-- near-term operational prioritization
-- readable scheduling organization
+### Operational Value
 
-The MVP does not require advanced calendar management functionality.
+Supports release coordination and operational scheduling awareness.
+
+### Expected Capabilities
+
+- upcoming release visibility
+- release schedule ordering
+- release date visibility
+- chronological release summaries
 
 ---
 
+## FEATURE-002
 # Operational Deadline Visibility
 
-The feature should support visibility into operational deadlines associated with release workflows.
+### Purpose
 
-Deadline visibility may include:
+Provide visibility into approaching operational deadlines requiring attention.
 
-- approaching task deadlines
-- overdue operational work
-- near-term operational pressure
-- release coordination urgency
+### Operational Value
 
-Deadline visibility should support operational awareness rather than automated scheduling workflows.
+Supports operational prioritization and workflow coordination.
+
+### Expected Capabilities
+
+- approaching deadline visibility
+- operational urgency visibility
+- deadline summaries
+- near-term workflow awareness
+
+---
+
+## FEATURE-003
+# Chronological Release Organization
+
+### Purpose
+
+Provide chronological organization of releases and operational schedules.
+
+### Operational Value
+
+Supports operational readability and scheduling coordination workflows.
+
+### Expected Capabilities
+
+- chronological release ordering
+- readable release sequencing
+- timeline organization visibility
+- scheduling clarity
+
+---
+
+## FEATURE-004
+# Near-Term Operational Pressure Visibility
+
+### Purpose
+
+Provide visibility into concentrated operational workload and scheduling pressure.
+
+### Operational Value
+
+Supports operational planning awareness and release coordination.
+
+### Expected Capabilities
+
+- near-term workload visibility
+- operational pressure visibility
+- release coordination awareness
+- operational timing visibility
+
+---
+
+## FEATURE-005
+# Release Timeline Summary Visibility
+
+### Purpose
+
+Provide centralized visibility into release scheduling and operational timing.
+
+### Operational Value
+
+Supports fast operational scanning and release timeline awareness.
+
+### Expected Capabilities
+
+- release timeline summaries
+- operational timing visibility
+- release schedule overview
+- chronological coordination support
+
+---
+
+## FEATURE-006
+# Timeline Risk Visibility
+
+### Purpose
+
+Provide visibility into timeline-related operational risk conditions.
+
+### Operational Value
+
+Supports operational prioritization and release readiness awareness.
+
+### Expected Capabilities
+
+- approaching deadline risk visibility
+- unresolved near-term operational concerns
+- scheduling pressure indicators
+- release timing awareness
 
 ---
 
@@ -184,7 +272,7 @@ The system should avoid:
 - advanced calendar orchestration
 - predictive scheduling systems
 
-The feature should feel operationally believable and intentionally lightweight.
+The Epic should feel operationally believable and intentionally lightweight.
 
 ---
 
@@ -263,7 +351,7 @@ Timeline Visibility is strategically important because it introduces:
 - realistic timeline pressure
 - operational prioritization support
 
-The feature creates natural operational justification for future platform maturity including:
+The Epic creates natural operational justification for future platform maturity including:
 
 - notifications
 - background processing

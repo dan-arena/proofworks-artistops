@@ -1,4 +1,4 @@
-# Feature Requirements
+# Epic Definition
 
 ## EPIC-003
 
@@ -10,9 +10,9 @@
 
 Operational Blocker Tracking provides visibility into operational constraints and impediments affecting release readiness workflows within the Artist Release Operations platform.
 
-This feature establishes the ability to explicitly identify and manage operational issues preventing release progress.
+This Epic establishes the ability to explicitly identify and manage operational issues preventing release progress.
 
-The purpose of the feature is to help operators:
+The purpose of the Epic is to help operators:
 
 - recognize operational impediments
 - understand release risks
@@ -35,7 +35,7 @@ Operational Blocker Tracking should enable operators to:
 - recognize release risk visibility
 - improve operational coordination awareness
 
-The feature should support operational clarity rather than escalation management or workflow automation.
+The system should support operational clarity rather than escalation management or workflow automation.
 
 ---
 
@@ -54,7 +54,7 @@ Blocker workflows should integrate naturally into broader release readiness coor
 
 ---
 
-# Core Blocker Requirements
+# Core Epic Requirements
 
 The system must support:
 
@@ -111,46 +111,132 @@ The system should prioritize operational clarity over workflow sophistication.
 
 ---
 
-# Blocker Creation Requirements
+# Proposed Feature Decomposition
 
-Operators should be able to create blockers associated with releases.
+The following Features are proposed as part of the Operational Blocker Tracking Epic.
 
-Blocker creation should support:
+Feature boundaries are intentionally focused on independently valuable operational capabilities.
 
-- blocker description
-- operational notes
+Architecture will later refine repository boundaries, implementation decomposition, and Story slicing guidance.
+
+---
+
+## FEATURE-001
+# Create Operational Blocker
+
+### Purpose
+
+Provide the ability to record operational impediments associated with releases.
+
+### Operational Value
+
+Establishes explicit operational risk visibility within release workflows.
+
+### Expected Capabilities
+
+- blocker creation workflow
+- release association
+- blocker description entry
+- blocker severity selection
+
+---
+
+## FEATURE-002
+# Blocker List View
+
+### Purpose
+
+Provide visibility into active and resolved operational blockers.
+
+### Operational Value
+
+Supports operational awareness and release risk coordination.
+
+### Expected Capabilities
+
+- blocker listing
+- operational severity visibility
+- blocker state visibility
+- release association visibility
+
+---
+
+## FEATURE-003
+# Resolve Operational Blocker
+
+### Purpose
+
+Provide the ability to resolve operational blockers once impediments are addressed.
+
+### Operational Value
+
+Supports operational workflow progression and release readiness recovery.
+
+### Expected Capabilities
+
+- blocker resolution workflow
+- resolution state updates
+- operational status visibility
+
+---
+
+## FEATURE-004
+# Blocked Release Visibility
+
+### Purpose
+
+Provide operational visibility into releases currently impacted by unresolved blockers.
+
+### Operational Value
+
+Supports operational prioritization and release risk awareness.
+
+### Expected Capabilities
+
+- blocked release visibility
+- unresolved blocker summaries
+- operational impact visibility
+- release risk indicators
+
+---
+
+## FEATURE-005
+# Blocker Severity Visibility
+
+### Purpose
+
+Provide operational visibility into blocker impact and urgency.
+
+### Operational Value
+
+Supports operational prioritization and risk evaluation workflows.
+
+### Expected Capabilities
+
 - severity visibility
-- initial blocker state
-
-Blocker creation should remain intentionally lightweight.
-
----
-
-# Blocker Resolution Requirements
-
-Operators should be able to resolve blockers once operational impediments are addressed.
-
-Resolved blockers should:
-
-- no longer contribute to active operational risk visibility
-- remain visible within release history context where appropriate
-
-The MVP does not require advanced audit history or escalation workflows.
+- blocker prioritization support
+- operational concern visibility
+- release impact awareness
 
 ---
 
-# Release-Level Blocker Visibility
+## FEATURE-006
+# Release-Level Blocker Summary Visibility
 
-Operators should be able to review blockers within release detail workflows.
+### Purpose
 
-Release-level blocker visibility should support:
+Provide release-specific visibility into operational blocker state and resolution progress.
 
+### Operational Value
+
+Supports release readiness awareness and operational coordination workflows.
+
+### Expected Capabilities
+
+- release-level blocker summaries
 - active blocker visibility
-- operational impact awareness
-- release readiness understanding
-- blocker resolution workflows
-
-Blockers should integrate naturally into release coordination workflows.
+- resolved blocker visibility
+- operational readiness awareness
 
 ---
 
@@ -215,7 +301,7 @@ The system should avoid:
 - advanced dependency management
 - automated remediation orchestration
 
-The feature should feel operationally believable and maintainable.
+The Epic should feel operationally believable and maintainable.
 
 ---
 
@@ -229,7 +315,7 @@ Operational Blocker Tracking should remain:
 - architecturally explainable
 - implementation-friendly
 
-The feature should establish stable operational constraint visibility foundations for future maturity.
+The Epic should establish stable operational constraint visibility foundations for future maturity.
 
 ---
 
@@ -295,7 +381,7 @@ Operational Blocker Tracking is strategically important because it introduces:
 - operational readiness impediment tracking
 - believable operational coordination workflows
 
-The feature creates natural operational justification for future platform maturity including:
+The Epic creates natural operational justification for future platform maturity including:
 
 - notifications
 - background operational processing

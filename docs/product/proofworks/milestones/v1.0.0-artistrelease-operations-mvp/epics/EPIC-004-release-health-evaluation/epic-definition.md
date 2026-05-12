@@ -1,4 +1,4 @@
-# Feature Requirements
+# Epic Definition
 
 ## EPIC-004
 
@@ -10,9 +10,9 @@
 
 Release Health Evaluation provides operational visibility into release readiness and operational risk within the Artist Release Operations platform.
 
-This feature establishes the first operational intelligence workflow within the system by evaluating operational state across releases, tasks, blockers, and timeline pressure.
+This Epic establishes the first operational intelligence workflow within the system by evaluating operational state across releases, tasks, blockers, and timeline pressure.
 
-The purpose of the feature is to help operators quickly understand:
+The purpose of the Epic is to help operators quickly understand:
 
 - whether releases are operationally healthy
 - what releases are at risk
@@ -34,7 +34,7 @@ Release Health Evaluation should enable operators to:
 - prioritize operational attention
 - evaluate operational workflow completeness
 
-The feature should support operational awareness rather than automated operational decision-making.
+The system should support operational awareness rather than automated operational decision-making.
 
 ---
 
@@ -49,7 +49,7 @@ The expected operational workflow for Release Health Evaluation is:
 5. Operator navigates into release workflows for corrective action
 6. Operational health state updates as workflows progress
 
-The feature should support operational prioritization and coordination.
+The Epic should support operational prioritization and coordination.
 
 ---
 
@@ -99,62 +99,133 @@ Operational health evaluation should remain explainable and maintainable.
 
 ---
 
-# At Risk Evaluation Requirements
+# Proposed Feature Decomposition
 
-The system should identify releases as potentially at risk when operational concerns exist.
+The following Features are proposed as part of the Release Health Evaluation Epic.
 
-Examples may include:
+Feature boundaries are intentionally focused on independently valuable operational capabilities.
 
-- overdue operational tasks
-- unresolved blockers
-- blocked operational work
-- approaching release deadlines with incomplete work
-
-The MVP should support understandable operational risk visibility rather than opaque scoring logic.
+Architecture will later refine repository boundaries, implementation decomposition, and Story slicing guidance.
 
 ---
 
-# Ready State Requirements
+## FEATURE-001
+# Release Readiness Visibility
 
-The system should support a release readiness state indicating operational completion.
+### Purpose
 
-Readiness evaluation may consider:
+Provide operational visibility into current release readiness state.
 
-- completion of operational work
-- absence of active blockers
-- absence of overdue tasks
-- operational workflow completion visibility
+### Operational Value
 
-The MVP does not require automated publishing or release execution workflows.
+Supports operational awareness and release coordination workflows.
 
----
+### Expected Capabilities
 
-# Overdue Operational Visibility
-
-The feature should surface overdue operational work contributing to release risk.
-
-The system should support visibility into:
-
-- overdue operational tasks
-- overdue duration
-- associated release
-- operational impact visibility
-
-Overdue operational work should contribute to overall release health visibility.
+- readiness indicators
+- operational state visibility
+- release readiness summaries
+- readiness status presentation
 
 ---
 
-# Blocked Operational Visibility
+## FEATURE-002
+# At Risk Release Identification
 
-The system should support visibility into blocked operational activity.
+### Purpose
 
-Blocked workflows should contribute to:
+Provide visibility into releases requiring operational attention.
 
+### Operational Value
+
+Supports operational prioritization and release risk awareness.
+
+### Expected Capabilities
+
+- at-risk release visibility
+- operational concern identification
+- release risk indicators
+- operational attention visibility
+
+---
+
+## FEATURE-003
+# Overdue Operational Risk Visibility
+
+### Purpose
+
+Provide visibility into overdue operational work contributing to release risk.
+
+### Operational Value
+
+Supports operational prioritization and readiness awareness.
+
+### Expected Capabilities
+
+- overdue operational visibility
+- overdue duration visibility
 - operational risk awareness
-- release readiness visibility
-- dashboard operational prioritization
+- overdue workflow highlighting
 
-Blocked operational state should remain visually distinguishable.
+---
+
+## FEATURE-004
+# Blocked Workflow Risk Visibility
+
+### Purpose
+
+Provide visibility into blocked operational activity affecting release readiness.
+
+### Operational Value
+
+Supports operational coordination and release risk evaluation.
+
+### Expected Capabilities
+
+- blocked workflow visibility
+- blocker impact visibility
+- operational concern visibility
+- release impact awareness
+
+---
+
+## FEATURE-005
+# Operational Health State Evaluation
+
+### Purpose
+
+Provide operational evaluation of overall release health state.
+
+### Operational Value
+
+Supports operational coordination and workflow prioritization.
+
+### Expected Capabilities
+
+- release health evaluation
+- operational state calculation
+- readiness condition visibility
+- operational health summaries
+
+---
+
+## FEATURE-006
+# Release Health Summary Visibility
+
+### Purpose
+
+Provide centralized visibility into operational health conditions across releases.
+
+### Operational Value
+
+Supports fast operational scanning and operational prioritization workflows.
+
+### Expected Capabilities
+
+- release health summaries
+- operational condition visibility
+- readiness overview visibility
+- operational coordination support
 
 ---
 
@@ -186,7 +257,7 @@ Release detail workflows should support visibility into:
 - readiness indicators
 - operational risk awareness
 
-The feature should support operational workflow navigation and prioritization.
+The Epic should support operational workflow navigation and prioritization.
 
 ---
 
@@ -222,7 +293,7 @@ The system should avoid:
 - excessive KPI presentation
 - generalized business intelligence workflows
 
-The feature should feel operationally believable and maintainable.
+The Epic should feel operationally believable and maintainable.
 
 ---
 
@@ -300,7 +371,7 @@ Release Health Evaluation is strategically important because it introduces:
 - operational state evaluation
 - realistic workflow pressure visibility
 
-The feature creates natural operational justification for future platform maturity including:
+The Epic creates natural operational justification for future platform maturity including:
 
 - background processing
 - notifications
