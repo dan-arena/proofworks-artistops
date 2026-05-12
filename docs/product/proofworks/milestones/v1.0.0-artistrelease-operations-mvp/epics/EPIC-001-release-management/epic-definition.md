@@ -113,6 +113,7 @@ The system should support the following release lifecycle states:
 - At Risk
 - Ready
 - Released
+- Cancelled
 
 The release lifecycle should represent operational readiness rather than publishing platform status.
 
@@ -155,6 +156,14 @@ Operational work is considered complete and release readiness has been achieved.
 # Released
 
 The release lifecycle has completed operational execution.
+
+---
+
+# Cancelled
+
+The release has been intentionally stopped and is no longer part of active operational workflows.
+
+Cancelled releases remain visible for operational history and reference purposes.
 
 ---
 
@@ -263,6 +272,26 @@ Supports operational readiness tracking and workflow progression visibility.
 - lifecycle state visibility
 - lifecycle state transitions
 - operational readiness state awareness
+
+---
+
+## FEATURE-006
+# Release Cancellation Management
+
+### Purpose
+
+Provide the ability to cancel releases that are no longer operationally active.
+
+### Operational Value
+
+Preserves operational history while removing the release from active operational workflows.
+
+### Expected Capabilities
+
+- cancel release workflow
+- cancelled state visibility
+- operational lifecycle transition visibility
+- exclusion from active operational coordination
 
 ---
 
