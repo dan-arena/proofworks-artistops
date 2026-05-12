@@ -26,22 +26,22 @@ Implementation decomposition into Stories, Tasks, and Subtasks is intentionally 
 
 ---
 
-# Feature Overview
+# Epic Overview
 
 The Artist Release Operations MVP includes the following Features:
 
-| Feature ID | Feature Name |
+| Epic ID | EPIC Name |
 |---|---|
-| FEATURE-001 | Release Dashboard |
-| FEATURE-002 | Release Management |
-| FEATURE-003 | Release Task Tracking |
-| FEATURE-004 | Release Health Evaluation |
-| FEATURE-005 | Timeline Visibility |
-| FEATURE-006 | Operational Blocker Tracking |
+| EPIC-001 | Release Dashboard |
+| EPIC-002 | Release Management |
+| EPIC-003 | Release Task Tracking |
+| EPIC-004 | Release Health Evaluation |
+| EPIC-005 | Timeline Visibility |
+| EPIC-006 | Operational Blocker Tracking |
 
 ---
 
-# FEATURE-001
+# EPIC-006
 # Release Dashboard
 
 ---
@@ -92,7 +92,7 @@ The dashboard should create:
 
 ---
 
-# FEATURE-002
+# EPIC-001
 # Release Management
 
 ---
@@ -135,7 +135,7 @@ This feature creates the operational anchor for all downstream workflows.
 
 ---
 
-# FEATURE-003
+# EPIC-002
 # Release Task Tracking
 
 ---
@@ -176,7 +176,7 @@ This feature introduces operational workflow coordination and establishes the fo
 
 ---
 
-# FEATURE-004
+# EPIC-004
 # Release Health Evaluation
 
 ---
@@ -224,7 +224,7 @@ It creates natural justification for future:
 
 ---
 
-# FEATURE-005
+# EPIC-005
 # Timeline Visibility
 
 ---
@@ -265,7 +265,7 @@ Timeline Visibility establishes operational scheduling awareness and supports re
 
 ---
 
-# FEATURE-006
+# EPIC-003
 # Operational Blocker Tracking
 
 ---
