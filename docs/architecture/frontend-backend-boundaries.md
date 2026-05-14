@@ -12,6 +12,8 @@ These boundaries exist to ensure:
 - clean decomposition
 - reduced duplication
 - explainable system behavior
+- architecture-aligned operational cognition
+- deterministic operational state evaluation
 
 The goal is not rigid separation for its own sake.
 
@@ -32,6 +34,8 @@ The frontend may understand:
 - how to shape backend responses into view models
 - how to render dynamic behavior based on changing data
 - how to manage temporary interaction state
+- how to guide user interaction flow
+- how to visually emphasize operational significance
 
 The frontend must NOT own:
 
@@ -39,10 +43,13 @@ The frontend must NOT own:
 - operational rules
 - lifecycle rules
 - workflow decisions
-- release readiness logic
+- release readiness evaluation
 - task/blocker evaluation
+- escalation derivation
+- operational confidence evaluation
 - health calculations
 - authorization decisions
+- hidden operational semantics
 
 Business logic belongs behind backend boundaries.
 
@@ -54,8 +61,47 @@ The UI should primarily be responsible for:
 - user interaction
 - data interchange
 - dynamic behavior based on backend-provided state
+- operational cognition through presentation
 
-Frontend code may support user experience, but it must not become the source of business truth.
+Frontend code may support user experience, but it must not become the source of operational truth.
+
+---
+
+# Operational Cognition Philosophy
+
+The platform intentionally separates:
+
+```text
+Operational cognition through evaluation
+```
+
+from:
+
+```text
+Operational cognition through presentation
+```
+
+The backend owns:
+- evaluation
+- operational interpretation
+- deterministic state derivation
+- escalation semantics
+- release confidence logic
+- readiness logic
+
+The frontend owns:
+- visualization
+- operational emphasis
+- workflow guidance
+- navigational clarity
+- interaction ergonomics
+- contextual presentation
+
+This distinction preserves:
+- explainability
+- architectural clarity
+- deterministic operational behavior
+- maintainable frontend complexity
 
 ---
 
@@ -79,6 +125,14 @@ The backend owns:
 - health evaluation logic
 - overdue calculations
 - timeline projection logic
+- escalation derivation
+- operational confidence evaluation
+- readiness evaluation
+- dependency interpretation
+
+Backend systems own:
+
+> operational truth
 
 ---
 
@@ -101,8 +155,48 @@ The frontend owns:
 - accessibility behavior
 - dashboard layout
 - user workflow guidance
+- contextual operational emphasis
+- operational navigation support
 
 The frontend should optimize usability without becoming the operational source of truth.
+
+Frontend systems own:
+
+> operational cognition through presentation
+
+---
+
+# ApplicationDataService Philosophy
+
+Frontend orchestration should primarily occur through:
+
+```text
+ApplicationDataService
+```
+
+The ApplicationDataService layer exists to:
+
+- translate ViewModels into API request contracts
+- coordinate API communication
+- translate API responses into ViewModels
+- isolate frontend workflow orchestration
+- support testable frontend behavior
+- support mock/demo implementations
+- allow frontend development to progress independently from backend implementation timing
+
+The ApplicationDataService should NOT:
+- own business rules
+- evaluate operational truth
+- duplicate backend logic
+- infer unsupported operational semantics
+
+The ApplicationDataService is a:
+- frontend orchestration boundary
+- contract translation layer
+- interaction coordination layer
+
+not:
+- a business logic layer
 
 ---
 
@@ -136,6 +230,11 @@ Examples:
 
 Frontend validation must never be considered authoritative.
 
+Frontend validation should avoid:
+- duplicating complex backend rule systems
+- inventing operational constraints
+- silently diverging from backend validation behavior
+
 ---
 
 # Calculation Ownership
@@ -150,8 +249,42 @@ Examples:
 - blocker severity state
 - release lifecycle transitions
 - workflow completion evaluation
+- escalation derivation
+- operational confidence evaluation
+- timeline risk evaluation
 
 The frontend may visually represent calculations but should not become the primary calculation engine.
+
+---
+
+# Operational State Ownership
+
+Operational state must remain backend-derived.
+
+The backend owns:
+- lifecycle validity
+- operational status
+- release confidence
+- readiness evaluation
+- escalation state
+- overdue state
+- dependency interpretation
+- risk evaluation
+- health state
+
+The frontend may:
+- visualize operational state
+- emphasize operational significance
+- group operational concerns
+- support rapid scanning
+- organize contextual visibility
+
+The frontend must NOT:
+- invent operational meaning
+- infer unsupported risk
+- calculate release readiness
+- determine escalation severity
+- duplicate operational evaluation rules
 
 ---
 
@@ -182,6 +315,8 @@ Examples:
 - temporary form state
 - active tabs
 - transient interaction state
+- dashboard display preferences
+- temporary UI grouping preferences
 
 ---
 
@@ -195,6 +330,7 @@ Prefer:
 - workflow-oriented requests
 - clear contracts
 - stable response structures
+- operationally meaningful query surfaces
 
 Avoid:
 
@@ -202,26 +338,33 @@ Avoid:
 - leaking database implementation details
 - excessive chatty endpoint design
 - frontend-driven operational orchestration
+- frontend-computed operational truth
 
 ---
 
 # Dashboard Boundary Rules
 
-Dashboards should be treated as presentation/composition layers.
+Dashboards should be treated as:
+
+> presentation and composition layers
 
 The dashboard should:
 
 - aggregate operational visibility
 - compose operational summaries
 - visualize existing operational state
+- support operational navigation
+- support rapid situational awareness
 
 The dashboard should NOT become:
 
 - the operational domain owner
 - the workflow engine
 - the primary rules engine
+- a hidden orchestration layer
+- an operational evaluation layer
 
-Operational behavior should remain within domain modules.
+Dashboard operational meaning should originate from backend systems.
 
 ---
 
@@ -252,6 +395,7 @@ This separation improves:
 - observability
 - future scalability
 - AI integration readiness
+- operational explainability
 
 without requiring full CQRS complexity initially.
 
@@ -265,6 +409,8 @@ The frontend should favor:
 - feature-oriented composition
 - predictable fetch patterns
 - explicit loading behavior
+- backend-derived operational state
+- deterministic rendering behavior
 
 Avoid:
 
@@ -272,8 +418,38 @@ Avoid:
 - duplicated backend rules
 - deeply coupled global state
 - over-engineered client orchestration
+- frontend-owned operational semantics
 
 Operational rules should not exist in frontend code.
+
+---
+
+# UX Governance Alignment
+
+Frontend implementation must align with established UX governance principles.
+
+Including:
+
+- calm operational cognition
+- explainable escalation
+- artist-friendly workflow guidance
+- contextual operational visibility
+- emotionally sustainable operational UX
+- operationally trustworthy interaction behavior
+
+Frontend UX may:
+- emphasize urgency visually
+- guide attention
+- support workflow navigation
+- reinforce operational context
+
+Frontend UX must NOT:
+- manipulate operational meaning
+- exaggerate unsupported certainty
+- create hidden escalation logic
+- imply operational intelligence that does not exist
+
+Operational honesty is more important than artificial intelligence theater.
 
 ---
 
@@ -287,6 +463,7 @@ Backend should produce:
 - structured validation failures
 - meaningful operational errors
 - traceable failure states
+- explainable operational consequence
 
 ---
 
@@ -298,6 +475,17 @@ Frontend should:
 - guide recovery
 - preserve user context where possible
 - avoid exposing internal implementation detail
+- maintain emotionally calm interaction behavior
+
+Errors should remain:
+- understandable
+- actionable
+- operationally clear
+
+without becoming:
+- emotionally aggressive
+- overly technical
+- alarm-oriented
 
 ---
 
@@ -310,6 +498,8 @@ Frontend should:
 - protected operational access
 - sensitive workflow protection
 - operational data security
+- protected AI orchestration
+- protected workflow intelligence
 
 ## Frontend Owns
 
@@ -334,18 +524,26 @@ The backend should own:
 - RAG access
 - workflow augmentation
 - protected AI operational logic
+- monetizable operational intelligence
 
 The frontend should primarily:
 
 - display AI outputs
 - gather user input
 - present AI-assisted workflows
+- visualize AI-supported operational guidance
 
 This protects:
 - operational integrity
 - product IP
 - security boundaries
 - future monetizable AI capability
+
+The frontend should avoid:
+- embedding protected prompts
+- exposing orchestration logic
+- exposing monetizable evaluation systems
+- implementing hidden AI reasoning behavior
 
 ---
 
@@ -362,6 +560,8 @@ they should migrate behind protected backend/private repository boundaries.
 
 Public frontend demonstrations may still visualize behavior without exposing protected implementation details.
 
+Architecture review is required before protected operational logic becomes publicly exposed.
+
 ---
 
 # Boundary Evolution Philosophy
@@ -374,5 +574,28 @@ The system should begin simple while preserving:
 - explainability
 - extraction readiness
 - operational clarity
+- deterministic operational ownership
 
 Architecture should resist premature complexity while continuously protecting system integrity.
+
+---
+
+# Final Boundary Philosophy
+
+The frontend should help users:
+
+- understand operational state
+- navigate workflows clearly
+- identify meaningful concerns
+- maintain operational awareness
+- interact efficiently
+
+The backend should ensure:
+
+- operational correctness
+- deterministic evaluation
+- workflow integrity
+- explainable operational behavior
+- trustworthy system state
+
+The system should remain understandable, maintainable, and operationally honest as the platform evolves.

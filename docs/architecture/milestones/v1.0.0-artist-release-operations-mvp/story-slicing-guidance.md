@@ -15,6 +15,10 @@ The purpose of this guidance is to ensure:
 - AI-friendly implementation decomposition
 - clean review boundaries
 - incremental operational delivery
+- deterministic operational ownership
+- architecture-safe implementation evolution
+- compositional dashboard behavior
+- backend-owned operational cognition
 
 This guidance applies to:
 - Stories
@@ -45,12 +49,21 @@ Stories should represent:
 - a reviewable vertical behavior
 - a repository-local capability increment
 - a bounded implementation scope
+- a clear operational ownership boundary
 
 Stories should NOT represent:
 - entire operational systems
 - entire Epics
 - broad architectural initiatives
 - multi-repository implementation blobs
+- hidden orchestration systems
+- cross-domain operational evaluation
+
+Stories should preserve:
+- explainability
+- deterministic ownership
+- clean operational boundaries
+- review clarity
 
 ---
 
@@ -78,6 +91,45 @@ Repository-local Stories improve:
 - AI implementation quality
 - reviewability
 - deployment predictability
+- operational cohesion
+
+---
+
+# Operational Cognition Ownership
+
+The platform intentionally separates:
+
+```text
+Operational cognition through evaluation
+```
+
+from:
+
+```text
+Operational cognition through presentation
+```
+
+Backend Stories own:
+- operational evaluation
+- lifecycle validity
+- readiness determination
+- escalation semantics
+- operational confidence logic
+- deterministic operational truth
+
+Frontend Stories own:
+- visualization
+- interaction flow
+- workflow guidance
+- contextual operational emphasis
+- operational navigation support
+
+Frontend Stories must NOT:
+- derive operational truth
+- calculate readiness
+- infer escalation semantics
+- duplicate backend evaluation logic
+- invent unsupported operational meaning
 
 ---
 
@@ -100,6 +152,8 @@ Avoid:
 - giant backend-only phases
 - giant frontend-only phases
 - speculative infrastructure-first phases
+- dashboard-first implementation
+- AI-first implementation
 
 ---
 
@@ -112,16 +166,20 @@ A Story should generally:
 - produce a reviewable pull request
 - avoid touching unrelated domains
 - avoid broad architectural churn
+- preserve explicit ownership
 
 Stories should feel:
 - focused
 - bounded
 - operationally meaningful
+- architecturally explainable
 
 Stories should NOT feel:
 - sprawling
 - vague
-- architectural in every direction at once
+- orchestration-heavy
+- operationally ambiguous
+- architecture-heavy in every direction at once
 
 ---
 
@@ -135,6 +193,7 @@ Good Stories are:
 - repository-local
 - testable
 - reviewable
+- ownership-clear
 
 Examples:
 
@@ -144,6 +203,8 @@ Examples:
 - Add release creation form
 - Add release lifecycle transition endpoint
 - Add overdue task query projection
+- Add dashboard operational summary projection
+- Add readiness visibility rendering
 
 ---
 
@@ -155,6 +216,7 @@ Bad Stories are:
 - ambiguous
 - cross-domain
 - cross-repository
+- orchestration-heavy
 - architecture-heavy
 - difficult to review
 
@@ -166,12 +228,17 @@ Examples:
 - Build operational platform
 - Add all release APIs
 - Implement frontend/backend integration
+- Calculate readiness in frontend
+- Add shared operational helper engine
+- Build AI operational intelligence
 
 These create:
 - unclear ownership
 - implementation drift
 - AI confusion
 - review fatigue
+- hidden coupling
+- operational ambiguity
 
 ---
 
@@ -186,6 +253,7 @@ Backend Stories should typically focus on ONE of:
 - query projection
 - aggregation logic
 - validation behavior
+- operational evaluation behavior
 
 Preferred backend Story examples:
 
@@ -194,11 +262,19 @@ Preferred backend Story examples:
 - Add release detail query
 - Add overdue task evaluation query
 - Add blocker resolution transition behavior
+- Add readiness evaluation query
+- Add dashboard operational aggregation projection
 
 Avoid backend Stories that:
 - modify many unrelated domains
 - introduce large framework churn
 - bundle unrelated workflows
+- mix orchestration and visualization concerns
+
+Backend Stories should preserve:
+- deterministic operational ownership
+- explainable operational behavior
+- explicit evaluation boundaries
 
 ---
 
@@ -213,6 +289,7 @@ Frontend Stories should typically focus on ONE of:
 - operational visibility
 - dashboard composition
 - filtering/sorting interaction
+- contextual operational emphasis
 
 Preferred frontend Story examples:
 
@@ -221,6 +298,8 @@ Preferred frontend Story examples:
 - Add release detail page
 - Add overdue task highlighting
 - Add dashboard summary cards
+- Add readiness visibility section
+- Add blocker severity visualization
 
 The frontend should remain intentionally thin.
 
@@ -228,6 +307,135 @@ Frontend Stories should avoid:
 - business rule ownership
 - operational calculations
 - lifecycle evaluation logic
+- escalation derivation
+- readiness determination
+- hidden orchestration behavior
+
+The frontend may:
+- visualize urgency
+- emphasize operational significance
+- support navigation
+- improve workflow ergonomics
+
+The frontend must NOT:
+- invent operational semantics
+- independently evaluate release state
+- calculate operational confidence
+
+---
+
+# Dashboard Story Guidance
+
+Dashboard Stories require elevated discipline.
+
+Dashboard should remain:
+- compositional
+- aggregation-oriented
+- visibility-focused
+
+Dashboard Stories should:
+- consume existing operational summaries
+- render backend-derived operational meaning
+- support rapid operational scanning
+- support layered navigation
+
+Dashboard Stories should NOT:
+- calculate readiness
+- derive escalation semantics
+- orchestrate workflows
+- become hidden operational engines
+
+Preferred Dashboard Stories:
+
+- Add dashboard release summary card
+- Add dashboard overdue task section
+- Add dashboard operational status rendering
+- Add dashboard readiness visualization
+
+Avoid Dashboard Stories such as:
+
+- Add dashboard health engine
+- Build dashboard workflow orchestration
+- Add frontend operational scoring
+- Add client-side readiness evaluation
+
+Dashboard scope creep is one of the highest architectural risk areas.
+
+---
+
+# Health Evaluation Story Guidance
+
+Health Evaluation Stories require explicit architectural discipline.
+
+Health should remain:
+- deterministic
+- explainable
+- operationally understandable
+- backend-owned
+
+Health Stories should focus on:
+- confidence evaluation
+- readiness visibility
+- operational trajectory interpretation
+- escalation contribution semantics
+
+Health Stories should avoid:
+- speculative intelligence
+- opaque scoring
+- hidden weighting systems
+- emotionally manipulative logic
+- AI-generated operational scoring
+
+Important distinction:
+
+```text
+Waiting != At Risk
+```
+
+Dependency state and operational confidence are intentionally separate concerns.
+
+Preferred Health Stories:
+
+- Add overdue-task readiness contribution
+- Add blocker-impact readiness evaluation
+- Add release confidence query
+- Add readiness summary projection
+
+Avoid Health Stories such as:
+
+- Build AI release confidence engine
+- Add predictive operational scoring
+- Add intelligent risk weighting system
+
+---
+
+# Operational Horizon Guidance
+
+Operational horizons such as:
+- Current Release
+- Upcoming Releases
+- Active Releases
+- Archive
+
+should remain:
+
+> query and projection concepts
+
+not:
+- standalone domains
+- standalone services
+- frontend-owned workflow systems
+
+Stories involving operational horizons should focus on:
+- query projections
+- visibility grouping
+- operational navigation
+- compositional rendering
+
+Avoid:
+- lifecycle duplication
+- separate operational engines
+- frontend-owned horizon semantics
 
 ---
 
@@ -239,6 +447,7 @@ Tasks should:
 - remain tightly scoped
 - support sequential implementation
 - isolate concerns
+- preserve ownership clarity
 
 Example:
 
@@ -251,6 +460,11 @@ Tasks:
 - Add endpoint handler
 - Add persistence behavior
 - Add endpoint tests
+
+Avoid Tasks that:
+- span unrelated domains
+- combine evaluation and rendering
+- introduce hidden orchestration
 
 ---
 
@@ -265,12 +479,19 @@ Subtasks should:
 - minimize implementation ambiguity
 - avoid broad churn
 - remain easy to review
+- preserve deterministic ownership
 
 Preferred Subtask examples:
 
 - Add Release entity validation rules
 - Add release insert persistence call
 - Add release created response mapping
+- Add overdue-task query projection mapping
+
+Avoid Subtasks that:
+- mix frontend and backend behavior
+- mix evaluation and presentation
+- introduce hidden shared logic
 
 ---
 
@@ -283,16 +504,20 @@ Stories should therefore:
 - avoid excessive context requirements
 - define explicit ownership
 - isolate operational behavior
+- preserve deterministic boundaries
 
 Tasks/Subtasks should:
 - remain deterministic
 - remain reviewable
 - avoid broad interpretation
+- avoid architectural ambiguity
 
 Good decomposition reduces:
 - implementation drift
 - hallucinated coupling
 - accidental architecture violations
+- frontend operational logic creep
+- hidden orchestration behavior
 
 ---
 
@@ -305,11 +530,14 @@ Good examples:
 - user can view releases
 - user can update release status
 - overdue tasks become visible
+- readiness state becomes explainable
+- blockers visibly affect operational confidence
 
 Avoid:
 - purely speculative implementation work
 - infrastructure with no operational use
 - architectural abstraction without workflow value
+- artificial operational intelligence
 
 ---
 
@@ -323,13 +551,21 @@ Preferred progression:
 2. Core operational APIs
 3. Core frontend workflows
 4. Operational visibility enhancements
-5. Aggregation/composition behavior
-6. Dashboard visibility
+5. Operational evaluation
+6. Aggregation/composition behavior
+7. Dashboard visibility
 
-Avoid building:
-- dashboard composition before operational behavior exists
-- aggregation before source workflows exist
-- AI workflows before operational state exists
+Dashboard functionality should summarize real operational capabilities rather than simulate them artificially.
+
+Health evaluation should emerge from:
+- actual operational signals
+- actual workflow state
+- actual release progression
+
+not:
+- placeholder intelligence
+- speculative scoring
+- artificial AI behavior
 
 ---
 
@@ -342,11 +578,14 @@ Reviewers should be able to quickly understand:
 - why it changed
 - what operational behavior was added
 - whether boundaries were respected
+- whether operational ownership remained coherent
 
 Avoid implementation units that:
 - touch excessive unrelated files
 - introduce unrelated refactors
 - mix operational concerns
+- hide orchestration behavior
+- blur evaluation/presentation boundaries
 
 ---
 
@@ -364,6 +603,7 @@ It DOES require:
 - explicit contracts
 - low coupling
 - operational cohesion
+- deterministic ownership
 
 The monolith should evolve cleanly without becoming entangled.
 
@@ -376,6 +616,7 @@ If a Story begins introducing:
 - commercially valuable workflow engines
 - protected automation logic
 - monetizable AI orchestration
+- protected operational evaluation systems
 
 Architecture review is required.
 
@@ -385,6 +626,22 @@ Protected product capability must migrate into:
 - protected API boundaries
 
 Public repositories should demonstrate engineering quality without exposing future product value.
+
+---
+
+# Architecture Review Trigger Conditions
+
+Architecture review should occur if Stories begin introducing:
+- frontend operational evaluation
+- dashboard orchestration ownership
+- hidden shared operational engines
+- opaque Health evaluation
+- cross-domain workflow ownership
+- speculative AI orchestration
+- duplicated operational semantics
+- query/projection systems becoming hidden domains
+
+Architecture should evolve intentionally rather than reactively.
 
 ---
 
@@ -401,5 +658,7 @@ The goal is:
 - operational realism
 - scalable evolution
 - AI-friendly execution
+- deterministic operational cognition
+- compositional system behavior
 
 Small, clear, operationally meaningful slices beat giant implementation epics every time.

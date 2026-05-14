@@ -237,8 +237,12 @@ Blockers remain release-scoped during MVP.
 
 Owns:
 - release operational health evaluation
+- release confidence evaluation
 - readiness visibility
 - operational risk indicators
+- escalation contribution evaluation
+- explainable operational state derivation
+- release trajectory evaluation
 
 The Health domain evaluates operational state from other domains.
 
@@ -256,9 +260,70 @@ Avoid:
 - speculative AI scoring
 - complex operational intelligence
 
+Health acts as an:
+
+> operational evaluation domain
+
+Health should remain responsible for:
+- interpreting operational signals
+- evaluating release confidence
+- evaluating readiness posture
+- evaluating operational trajectory
+
+Health should NOT become:
+- opaque scoring infrastructure
+- hidden AI evaluation
+- emotionally manipulative risk calculation
+- dashboard-owned helper logic
+
+Health evaluation should remain:
+- deterministic
+- explainable
+- operationally understandable
+- reviewable by users and engineers
+
+Operational confidence should remain distinct from:
+- dependency state
+- workflow ownership
+- raw task completion counts
+
 ---
 
 # Timeline Domain
+
+## Operational Horizon Philosophy
+
+Operational horizons such as:
+- Current Release
+- Upcoming Releases
+- Active Releases
+- Archive
+
+should initially behave as:
+
+> query and projection concepts
+
+not:
+- separate bounded contexts
+- separate services
+- separate lifecycle engines
+
+Operational horizons represent:
+- visibility groupings
+- operational time framing
+- navigational perspectives
+- release sequencing context
+
+The Timeline domain may support:
+- horizon-oriented queries
+- release sequencing projections
+- operational pacing visibility
+
+Operational horizons should remain:
+- lightweight
+- explainable
+- compositional
+- extraction-safe
 
 ## Responsibility
 
@@ -275,6 +340,37 @@ Timeline focuses on:
 ---
 
 # Dashboard Domain
+
+## Architectural Positioning
+
+Dashboard acts as a:
+
+> compositional read-model and operational visibility layer
+
+Dashboard exists to:
+- aggregate operational summaries
+- support rapid operational scanning
+- compose cross-domain visibility
+- support navigational routing
+- expose dashboard-oriented projections
+
+Dashboard does NOT:
+- own operational truth
+- calculate lifecycle validity
+- evaluate release readiness independently
+- determine escalation semantics
+- orchestrate workflows
+
+Dashboard should consume:
+- backend-derived operational state
+- domain summaries
+- deterministic evaluation outputs
+
+The Dashboard domain should remain:
+- composition-oriented
+- query-oriented
+- extraction-safe
+- operationally lightweight
 
 ## Responsibility
 
@@ -335,6 +431,43 @@ Domains should prefer:
 
 ---
 
+# Operational State Ownership Rules
+
+Operational truth must remain backend-owned.
+
+Backend domains own:
+- lifecycle validity
+- operational state evaluation
+- release confidence evaluation
+- escalation derivation
+- overdue determination
+- readiness evaluation
+- dependency interpretation
+
+Frontend systems may:
+- visualize operational state
+- group operational information
+- emphasize operational urgency
+- filter and organize views
+- shape user interaction flows
+
+Frontend systems must NOT:
+- invent operational semantics
+- calculate release readiness
+- determine escalation severity
+- infer unsupported operational truth
+- duplicate backend operational evaluation
+
+The frontend supports:
+
+> operational cognition through presentation
+
+The backend owns:
+
+> operational cognition through evaluation
+
+---
+
 # API Layer Philosophy
 
 The API layer should expose:
@@ -384,6 +517,46 @@ The MVP intentionally avoids:
 - distributed event buses
 - asynchronous orchestration complexity
 - premature messaging infrastructure
+
+---
+
+# Notification & Escalation Topology
+
+The MVP should treat notifications and escalation as:
+
+> visibility concerns
+
+not:
+- distributed orchestration infrastructure
+- asynchronous messaging architecture
+- standalone notification systems
+
+Preferred MVP strategy:
+
+```text
+Operational Domains
+    ->
+Health / Evaluation
+    ->
+Dashboard Read Models
+    ->
+Frontend Visibility & Presentation
+```
+
+The MVP should avoid:
+- notification microservices
+- distributed event buses
+- push-notification infrastructure
+- complex subscription systems
+- speculative alert orchestration
+
+Escalation semantics should remain:
+- deterministic
+- explainable
+- backend-derived
+- operationally grounded
+
+Notification delivery complexity should evolve only when operationally justified.
 
 ---
 
@@ -453,6 +626,32 @@ Protected capabilities should migrate behind:
 - protected infrastructure boundaries
 
 Public repositories should demonstrate architecture quality without exposing protected product IP.
+
+---
+
+# Achievement & Reflection Separation
+
+Operational workflow management and achievement reflection should remain architecturally separable concerns.
+
+Future concepts such as:
+- Green Room
+- achievement history
+- milestone reflection
+- collectible recognition systems
+- career retrospectives
+
+should remain distinct from:
+- operational health evaluation
+- release risk visibility
+- workflow execution
+- escalation systems
+
+This preserves:
+- emotional UX separation
+- operational cognition clarity
+- modular extraction readiness
+
+Achievement-oriented systems may eventually evolve into separate modules or protected product capabilities.
 
 ---
 

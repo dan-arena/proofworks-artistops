@@ -20,6 +20,9 @@ The purpose is to establish:
 - explainable engineering structure
 - future extraction readiness
 - future AI integration boundaries
+- architecture-aligned operational UX foundations
+- deterministic operational state evaluation
+- compositional operational cognition
 
 while remaining:
 
@@ -43,6 +46,9 @@ The milestone should demonstrate:
 - operational query composition
 - realistic operational state management
 - extraction-ready module boundaries
+- deterministic operational evaluation
+- explainable escalation semantics
+- compositional dashboard architecture
 
 The milestone should avoid:
 
@@ -51,6 +57,8 @@ The milestone should avoid:
 - distributed orchestration
 - speculative scaling architecture
 - premature AI orchestration complexity
+- frontend-owned operational logic
+- dashboard workflow-engine creep
 
 ---
 
@@ -77,6 +85,45 @@ The monolith should NOT behave as:
 
 ---
 
+# Operational Cognition Philosophy
+
+The platform intentionally separates:
+
+```text
+Operational cognition through evaluation
+```
+
+from:
+
+```text
+Operational cognition through presentation
+```
+
+Backend systems own:
+- operational evaluation
+- release confidence evaluation
+- escalation semantics
+- readiness evaluation
+- operational state derivation
+- deterministic operational truth
+
+Frontend systems own:
+- visualization
+- operational guidance presentation
+- workflow ergonomics
+- contextual visibility
+- navigational clarity
+- operational emphasis
+
+This distinction preserves:
+- explainability
+- deterministic operational behavior
+- architectural clarity
+- maintainable frontend complexity
+- scalable UX evolution
+
+---
+
 # Initial System Topology
 
 ## Frontend
@@ -98,8 +145,19 @@ Primary responsibilities:
 - dashboard visualization
 - API consumption
 - view model shaping
+- operational cognition through presentation
 
-The frontend should not own business logic.
+The frontend should not own:
+- business logic
+- operational evaluation
+- escalation derivation
+- release readiness evaluation
+- lifecycle enforcement
+
+The frontend should remain:
+- compositional
+- presentation-oriented
+- interaction-focused
 
 ---
 
@@ -126,6 +184,13 @@ Primary responsibilities:
 - health evaluation
 - authorization
 - operational state management
+- escalation derivation
+- release confidence evaluation
+- operational cognition through evaluation
+
+Backend systems own:
+
+> operational truth
 
 ---
 
@@ -144,6 +209,12 @@ Owns:
 Acts as:
 - the central operational anchor domain
 
+Release Management should NOT own:
+- dashboard composition
+- health evaluation
+- escalation orchestration
+- blocker resolution logic
+
 ---
 
 ## Release Task Tracking
@@ -159,6 +230,12 @@ Tasks remain release-scoped in MVP.
 
 Global task management is intentionally deferred.
 
+Task Tracking should NOT own:
+- release confidence evaluation
+- lifecycle ownership
+- dashboard composition
+- escalation orchestration
+
 ---
 
 ## Operational Blocker Tracking
@@ -171,21 +248,54 @@ Owns:
 
 Blockers remain release-scoped in MVP.
 
+Blocker Tracking should NOT own:
+- dashboard composition
+- lifecycle authority
+- health scoring ownership
+
 ---
 
 ## Release Health Evaluation
 
 Owns:
 - release operational health evaluation
+- release confidence evaluation
 - readiness visibility
 - operational risk indicators
+- escalation contribution evaluation
+- explainable operational state derivation
+- release trajectory evaluation
 
-Health evaluation should initially remain simple and explainable.
+The Health domain evaluates operational state from other domains.
+
+Health acts as an:
+
+> operational evaluation domain
+
+Health evaluation should initially remain:
+- deterministic
+- explainable
+- operationally understandable
+- reviewable by users and engineers
 
 The MVP should avoid:
 - AI-generated scoring
 - opaque scoring systems
 - speculative operational intelligence
+- emotionally manipulative evaluation systems
+
+Operational confidence should remain distinct from:
+- dependency state
+- raw task completion
+- workflow ownership
+
+Example distinction:
+
+```text
+Waiting != At Risk
+```
+
+Dependency state and confidence trajectory are intentionally separate concepts.
 
 ---
 
@@ -196,8 +306,47 @@ Owns:
 - schedule visibility
 - operational timeline projection
 - timeline-oriented operational queries
+- operational horizon visibility
 
-Timeline should initially focus on visibility rather than predictive automation.
+Timeline should initially focus on:
+- visibility
+- operational sequencing
+- horizon-oriented projections
+
+not:
+- predictive automation
+- speculative forecasting systems
+
+---
+
+## Operational Horizon Philosophy
+
+Operational horizons such as:
+- Current Release
+- Upcoming Releases
+- Active Releases
+- Archive
+
+should initially behave as:
+
+> query and projection concepts
+
+not:
+- separate bounded contexts
+- separate services
+- separate lifecycle engines
+
+Operational horizons represent:
+- visibility groupings
+- operational time framing
+- navigational perspectives
+- release sequencing context
+
+This preserves:
+- compositional architecture
+- explainability
+- modular simplicity
+- extraction readiness
 
 ---
 
@@ -209,7 +358,30 @@ Owns:
 - operational aggregation queries
 - high-level operational status visibility
 
-The dashboard is a composition layer, not a workflow owner.
+Dashboard acts as a:
+
+> compositional read-model and operational visibility layer
+
+The dashboard exists to:
+- support rapid operational scanning
+- aggregate cross-domain visibility
+- support navigational routing
+- expose operational summaries
+- support contextual operational awareness
+
+The dashboard is:
+- composition-oriented
+- query-oriented
+- visibility-oriented
+
+The dashboard is NOT:
+- a workflow owner
+- a rules engine
+- an orchestration layer
+- a lifecycle authority
+- an operational evaluation engine
+
+Dashboard operational meaning must originate from backend domains.
 
 ---
 
@@ -236,12 +408,15 @@ Modules should favor:
 - low coupling
 - explicit contracts
 - extraction readiness
+- deterministic operational ownership
 
 Modules should avoid:
 
 - shared cross-domain logic dumping
 - circular dependencies
 - hidden coupling
+- dashboard-owned operational logic
+- frontend-driven operational orchestration
 
 ---
 
@@ -255,14 +430,52 @@ The frontend should primarily:
 - shape API responses into view models
 - manage interaction state
 - visualize operational workflows
+- support operational cognition through presentation
 
 The frontend should avoid:
 - business logic ownership
 - operational rule evaluation
 - lifecycle enforcement
 - workflow calculation logic
+- escalation derivation
+- operational confidence calculation
+- hidden operational semantics
 
 The backend remains the source of operational truth.
+
+---
+
+# ApplicationDataService Philosophy
+
+Frontend orchestration should primarily occur through:
+
+```text
+ApplicationDataService
+```
+
+The ApplicationDataService layer exists to:
+- translate ViewModels into API request contracts
+- coordinate API communication
+- translate API responses into ViewModels
+- isolate frontend orchestration concerns
+- support frontend testing
+- support mock/demo implementations
+- allow frontend development to progress independently from backend completion timing
+
+The ApplicationDataService should NOT:
+- own business rules
+- evaluate operational truth
+- calculate release health
+- derive escalation semantics
+- duplicate backend operational logic
+
+The ApplicationDataService is:
+- a frontend orchestration boundary
+- a contract translation layer
+- an interaction coordination layer
+
+not:
+- a business logic engine
 
 ---
 
@@ -282,6 +495,11 @@ Each slice should produce:
 - reviewable functionality
 - demonstrable operational value
 - deployable incremental progress
+
+Each slice should preserve:
+- module ownership clarity
+- operational explainability
+- frontend/backend boundary integrity
 
 ---
 
@@ -303,6 +521,8 @@ Queries:
 - evaluate
 - visualize
 
+Operational mutations and operational visibility should remain conceptually distinct.
+
 This should remain lightweight initially.
 
 Full CQRS/event sourcing complexity is intentionally deferred.
@@ -318,12 +538,33 @@ Recommended direction:
 - in-process messaging patterns
 - lightweight operational notifications
 
+The MVP intentionally avoids:
+- distributed event buses
+- speculative orchestration infrastructure
+- asynchronous workflow complexity
+- notification microservices
+- push-notification infrastructure
+
+Preferred MVP escalation strategy:
+
+```text
+Operational Domains
+    ->
+Health / Evaluation
+    ->
+Dashboard Read Models
+    ->
+Frontend Visibility & Presentation
+```
+
 Future extraction points may later support:
 - background processing
 - distributed messaging
 - automation workflows
 - AI orchestration
 - asynchronous operational processing
+
+These concerns should evolve only when operationally justified.
 
 ---
 
@@ -344,6 +585,7 @@ Persistence design should optimize for:
 Avoid:
 - premature abstraction
 - speculative data complexity
+- generic persistence theater
 
 ---
 
@@ -358,10 +600,41 @@ The MVP should progressively support:
 - workflow visibility
 - error visibility
 
+Observability should align to:
+- operational domains
+- workflow visibility
+- explainable operational behavior
+
 The MVP does not require:
 - enterprise observability infrastructure
 - distributed tracing systems
 - excessive telemetry complexity
+
+---
+
+# UX Governance Alignment
+
+The architecture must remain aligned with established UX governance principles.
+
+Including:
+- calm operational cognition
+- explainable escalation
+- artist-friendly workflow guidance
+- emotionally sustainable operational UX
+- contextual operational visibility
+- backend-owned operational truth
+
+The architecture should support:
+- operational trustworthiness
+- deterministic evaluation
+- compositional dashboard behavior
+- explainable operational state transitions
+
+The architecture should avoid:
+- artificial intelligence theater
+- hidden operational semantics
+- frontend-owned operational meaning
+- emotionally manipulative escalation systems
 
 ---
 
@@ -378,6 +651,22 @@ However, the MVP should preserve future insertion points for:
 
 AI systems should initially exist behind backend boundaries.
 
+Protected operational intelligence should remain:
+- backend-owned
+- extraction-ready
+- security-boundary aware
+- commercially protectable
+
+The frontend should primarily:
+- present AI-assisted outputs
+- gather workflow input
+- visualize AI-assisted guidance
+
+The frontend should avoid:
+- exposing protected prompts
+- embedding orchestration logic
+- exposing monetizable evaluation systems
+
 ---
 
 # Public vs Private Product Boundary
@@ -389,6 +678,7 @@ Public repositories may demonstrate:
 - modular decomposition
 - operational workflows
 - implementation quality
+- explainable engineering structure
 
 However, commercially valuable ArtistOps capabilities must remain protected.
 
@@ -407,6 +697,32 @@ Public demonstrations must not expose future commercial product value.
 
 ---
 
+# Achievement & Reflection Separation
+
+Operational workflow management and achievement reflection should remain architecturally separable concerns.
+
+Future concepts such as:
+- Green Room
+- achievement history
+- milestone reflection
+- collectible recognition systems
+- career retrospectives
+
+should remain distinct from:
+- operational health evaluation
+- release risk visibility
+- workflow execution
+- escalation systems
+
+This preserves:
+- emotional UX separation
+- operational cognition clarity
+- modular extraction readiness
+
+Achievement-oriented systems may eventually evolve into separate modules or protected product capabilities.
+
+---
+
 # Architecture Success Criteria
 
 The milestone succeeds architecturally if it demonstrates:
@@ -417,7 +733,9 @@ The milestone succeeds architecturally if it demonstrates:
 - realistic decomposition strategy
 - incremental implementation capability
 - operational visibility patterns
-- explainable engineering decisions
+- deterministic operational evaluation
+- explainable escalation semantics
+- compositional dashboard behavior
 - extraction-ready design
 
 without introducing unnecessary complexity.
@@ -436,5 +754,7 @@ This milestone establishes the operational foundation for future capabilities in
 - asynchronous processing
 - multi-artist operational support
 - protected commercial product capabilities
+- achievement/reflection systems
+- advanced operational intelligence
 
 The MVP should intentionally leave clean expansion paths without prematurely implementing them.
