@@ -382,65 +382,59 @@ This Task is complete when:
 
 ---
 
-# Codex Execution Prompt
+# Implementation Guidance
 
-```text
-Implement TASK-001A-003 in the proofworks-artistops-api repository.
+Implementation should remain focused exclusively on backend validation behavior for CreateReleaseRequest.
 
-Goal:
-Add backend validation behavior for CreateReleaseRequest in STORY-001A.
+Implementation should follow existing repository conventions for:
 
-Follow existing repository conventions for:
 - validation structure
-- naming
-- testing
+- naming consistency
+- testing organization
 - error handling
 - implementation style
 
-Implement validation for:
-- title required
-- title not blank
+Implementation should preserve:
+
+- backend-owned validation authority
+- lifecycle ownership protection
+- bounded Task scope
+- repository-local implementation
+- reviewable change size
+
+Implementation should include validation for:
+
+- required title
+- non-blank title
 - title maximum length
 - supported ReleaseType values
-- targetReleaseDate required
-- operationalNotes maximum length if provided
+- required targetReleaseDate
+- operationalNotes length constraints when provided
 
-Operational rules:
-- callers must not control:
-  - id
-  - lifecycleState
-  - createdAt
-  - updatedAt
+Implementation should preserve backend ownership of:
 
-Suggested MVP limits:
-- title max length: 150
-- operationalNotes max length: 2000
+- id
+- lifecycleState
+- createdAt
+- updatedAt
 
-Do NOT implement:
+Implementation should avoid:
+
 - endpoint orchestration
-- persistence logic
+- persistence behavior
 - lifecycle transitions
-- cancellation behavior
-- frontend validation
-- application orchestration
+- cancellation workflows
+- frontend validation assumptions
+- application orchestration behavior
 
-Add tests validating:
+Testing should validate:
+
 - valid requests pass
-- invalid requests fail
+- invalid requests fail deterministically
 - unsupported ReleaseType values fail
-- missing title fails
-- blank title fails
-- missing targetReleaseDate fails
-- oversized values fail
-- forbidden lifecycle ownership fields are rejected or ignored
-
-Keep implementation:
-- small
-- reviewable
-- repository-local
-- architecture-safe
-- rollback-safe
-```
+- required field validation behavior
+- oversized value handling
+- forbidden operational ownership field handling
 
 ---
 

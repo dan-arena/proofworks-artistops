@@ -341,70 +341,48 @@ This Task is complete when:
 
 ---
 
-# Codex Execution Prompt
+# Implementation Guidance
 
-```text
-Implement TASK-001A-001 in the proofworks-artistops-api repository.
+Implementation should remain focused exclusively on the Release domain model and initialization behavior defined within this Task.
 
-Goal:
-Define the Release creation domain model for STORY-001A.
+Implementation should follow existing repository conventions for:
 
-Follow existing repository conventions for:
 - folder structure
-- naming
-- testing
+- naming consistency
+- testing organization
 - implementation style
 
-Implement only:
+Implementation should preserve:
+
+- backend-owned lifecycle initialization
+- bounded Task scope
+- repository-local implementation
+- reviewable change size
+- deterministic initialization behavior
+
+Implementation should include:
+
 - Release domain model
 - ReleaseType enum
 - ReleaseLifecycleState enum
-- Release initialization behavior
+- initialization behavior
 - domain-level tests
 
-Operational rules:
-- backend generates Release identifiers
-- lifecycleState initializes to Draft
-- backend assigns createdAt timestamp
-- backend assigns updatedAt timestamp
+Implementation should avoid:
 
-ReleaseType values:
-- Single
-- EP
-- Album
-- LiveRelease
-- Other
-
-ReleaseLifecycleState values:
-- Draft
-- Active
-- AtRisk
-- Ready
-- Released
-- Cancelled
-
-Do NOT implement:
-- API endpoints
+- API endpoint behavior
 - request/response contracts
-- persistence schema
+- persistence over-modeling
 - lifecycle transitions
-- cancellation behavior
-- list/detail behavior
-- frontend behavior
+- cancellation workflows
+- frontend concerns
 
-Add tests validating:
+Testing should validate:
+
 - valid Release initialization
-- lifecycleState defaults to Draft
-- approved enum values exist
-- timestamps initialize correctly
-
-Keep implementation:
-- small
-- reviewable
-- repository-local
-- architecture-safe
-- rollback-safe
-```
+- lifecycleState default behavior
+- approved enum values
+- timestamp initialization behavior
 
 ---
 

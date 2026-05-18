@@ -419,57 +419,65 @@ This Task is complete when:
 
 ---
 
-# Codex Execution Prompt
+# Implementation Guidance
 
-```text
-Implement TASK-001A-006 in the proofworks-artistops-api repository.
+Implementation should remain focused exclusively on STORY-001A integration verification.
 
-Goal:
-Add STORY-001A integration tests proving the create-release workflow functions correctly end-to-end.
+Implementation should follow existing repository conventions for:
 
-Follow existing repository conventions for:
-- integration testing
-- test structure
+- integration testing structure
+- test organization
 - fixtures
 - API testing
 - implementation style
 
-Implement only:
+Implementation should preserve:
+
+- backend-owned operational behavior
+- lifecycle ownership protection
+- bounded Task scope
+- repository-local testing
+- reviewable test coverage
+
+Implementation should include:
+
 - Story-level integration tests
 - create-release workflow verification
 - validation failure verification
 - backend operational ownership verification
 
-Required scenarios:
+Required integration scenarios include:
+
 - valid Release creation
-- missing title fails
-- blank title fails
-- unsupported ReleaseType fails
-- missing targetReleaseDate fails
-- lifecycleState defaults to Draft
-- callers cannot override lifecycleState
-- callers cannot override identifiers
+- missing title validation failure
+- blank title validation failure
+- unsupported ReleaseType validation failure
+- missing targetReleaseDate validation failure
+- lifecycleState initialization to Draft
+- backend-generated identifier verification
 
-Operational rules:
-- backend owns lifecycle initialization
-- backend owns identifier generation
-- backend validation is authoritative
-- responses must reflect persisted backend state
+Implementation should preserve backend ownership of:
 
-Do NOT implement:
+- lifecycle initialization
+- identifier generation
+- validation authority
+- persisted response state
+
+Implementation should avoid:
+
 - lifecycle transitions
 - cancellation workflows
 - frontend tests
-- dashboard tests
+- dashboard behavior tests
 - authentication/authorization systems
 
-Keep implementation:
-- small
-- reviewable
-- repository-local
-- architecture-safe
-- rollback-safe
-```
+Testing should validate:
+
+- successful end-to-end create-release behavior
+- deterministic validation failures
+- backend-owned operational state initialization
+- persisted response consistency
+- repository-local Story verification
 
 ---
 

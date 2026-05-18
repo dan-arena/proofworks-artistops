@@ -60,7 +60,7 @@ proofworks-artistops-api
 
 Implement the backend-owned application behavior responsible for creating a Release.
 
-This Task establishes the orchestration layer connecting:
+This Task establishes the application layer connecting:
 
 - validated request input
 - domain initialization
@@ -331,58 +331,58 @@ This Task is complete when:
 
 ---
 
-# Codex Execution Prompt
+# Implementation Guidance
 
-```text
-Implement TASK-001A-004 in the proofworks-artistops-api repository.
+Implementation should remain focused exclusively on backend application behavior for Release creation.
 
-Goal:
-Implement backend application behavior for creating a Release in STORY-001A.
+Implementation should follow existing repository conventions for:
 
-Follow existing repository conventions for:
 - application structure
-- orchestration patterns
 - repository boundaries
-- testing
+- testing organization
 - implementation style
 
-Implement only:
+Implementation should preserve:
+
+- backend-owned initialization behavior
+- bounded Task scope
+- repository-local implementation
+- reviewable change size
+- deterministic create-release behavior
+
+Implementation should include:
+
 - create-release application behavior
-- Release initialization orchestration
+- Release initialization behavior
 - persistence invocation
 - CreateReleaseResponse generation
 - application-level tests
 
-Operational rules:
-- backend generates Release identifiers
-- backend initializes lifecycleState to Draft
-- backend assigns timestamps
-- validated requests create Releases
-- persistence remains abstracted behind repository boundaries
+Implementation should preserve backend ownership of:
 
-Do NOT implement:
+- Release identifiers
+- lifecycleState initialization
+- timestamp assignment
+
+Persistence behavior should remain abstracted behind repository/application boundaries.
+
+Implementation should avoid:
+
 - API endpoint behavior
 - lifecycle transitions
 - cancellation workflows
 - list/detail behavior
-- frontend behavior
+- frontend concerns
 - dashboard behavior
 
-Add tests validating:
-- successful Release creation
-- lifecycleState defaults to Draft
-- identifiers are backend-generated
-- timestamps initialize correctly
-- persistence invocation occurs
-- response matches persisted Release state
+Testing should validate:
 
-Keep implementation:
-- small
-- reviewable
-- repository-local
-- architecture-safe
-- rollback-safe
-```
+- successful Release creation
+- lifecycleState initialization to Draft
+- backend-generated identifiers
+- timestamp initialization behavior
+- persistence invocation
+- response consistency with persisted state
 
 ---
 
@@ -439,7 +439,7 @@ Preserve strict STORY-001A boundaries.
 
 This Task establishes:
 
-- backend orchestration patterns
+- backend application behavior patterns
 - backend-owned operational initialization
 - persistence interaction patterns
 - deterministic create-release behavior

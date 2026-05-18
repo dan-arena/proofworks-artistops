@@ -358,68 +358,49 @@ This Task is complete when:
 
 ---
 
-# Codex Execution Prompt
+# Implementation Guidance
 
-```text
-Implement TASK-001A-002 in the proofworks-artistops-api repository.
+Implementation should remain focused exclusively on the API request and response contracts required for Release creation.
 
-Goal:
-Define the API request and response contracts for STORY-001A release creation.
+Implementation should follow existing repository conventions for:
 
-Follow existing repository conventions for:
 - folder structure
-- naming
-- serialization
-- testing
+- naming consistency
+- serialization behavior
+- testing organization
 - implementation style
 
-Implement only:
+Implementation should preserve:
+
+- backend ownership boundaries
+- lifecycle ownership protection
+- bounded Task scope
+- repository-local implementation
+- reviewable change size
+
+Implementation should include:
+
 - CreateReleaseRequest
 - CreateReleaseResponse
 - contract serialization tests
 
-Operational rules:
-- callers may provide:
-  - title
-  - releaseType
-  - targetReleaseDate
-  - operationalNotes
+Implementation should avoid:
 
-- callers must NOT provide:
-  - id
-  - lifecycleState
-  - createdAt
-  - updatedAt
-
-- responses must expose:
-  - backend-generated id
-  - initialized lifecycleState
-  - persisted release values
-  - createdAt timestamp
-
-Do NOT implement:
 - validation behavior
 - application orchestration
-- API endpoint
+- API endpoint implementation
 - persistence logic
 - lifecycle transitions
-- cancellation behavior
-- frontend behavior
+- cancellation workflows
+- frontend concerns
 
-Add tests validating:
+Testing should validate:
+
 - request serialization
 - response serialization
-- forbidden request fields are excluded
-- lifecycleState is exposed in responses
-- Draft lifecycle state serializes correctly
-
-Keep implementation:
-- small
-- reviewable
-- repository-local
-- architecture-safe
-- rollback-safe
-```
+- exclusion of forbidden operational fields
+- lifecycleState exposure in responses
+- Draft lifecycleState serialization behavior
 
 ---
 

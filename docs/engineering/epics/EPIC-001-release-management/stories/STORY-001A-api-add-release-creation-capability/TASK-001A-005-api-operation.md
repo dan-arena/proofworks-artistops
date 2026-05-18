@@ -350,23 +350,29 @@ This Task is complete when:
 
 ---
 
-# Codex Execution Prompt
+# Implementation Guidance
 
-```text
-Implement TASK-001A-005 in the proofworks-artistops-api repository.
+Implementation should remain focused exclusively on exposing Release creation behavior through the API boundary.
 
-Goal:
-Expose the STORY-001A create-release behavior through the API boundary.
+Implementation should follow existing repository conventions for:
 
-Follow existing repository conventions for:
 - endpoint structure
 - routing
 - request binding
-- response behavior
-- testing
+- response handling
+- testing organization
 - implementation style
 
-Implement only:
+Implementation should preserve:
+
+- backend-owned operational behavior
+- lifecycle ownership protection
+- bounded Task scope
+- repository-local implementation
+- reviewable change size
+
+Implementation should include:
+
 - create-release API operation
 - request binding
 - validation invocation
@@ -374,38 +380,35 @@ Implement only:
 - response handling
 - API integration tests
 
-Operational rules:
-- API operation orchestrates backend behavior only
-- lifecycleState remains backend-owned
-- identifiers remain backend-owned
-- validation behavior comes from existing validation layer
-- response reflects persisted backend state
+Implementation should preserve backend ownership of:
+
+- lifecycleState
+- identifiers
+- timestamps
+- validation behavior
 
 Suggested route shape:
-POST /releases
 
-Do NOT implement:
+```text
+POST /releases
+```
+
+Implementation should avoid:
+
 - lifecycle transitions
 - cancellation workflows
 - list/detail behavior
-- frontend behavior
+- frontend concerns
 - dashboard behavior
 - authentication/authorization systems
 
-Add tests validating:
-- valid requests succeed
-- invalid requests fail
-- lifecycleState defaults to Draft
-- callers cannot control backend-owned operational fields
-- response matches persisted Release state
+Testing should validate:
 
-Keep implementation:
-- small
-- reviewable
-- repository-local
-- architecture-safe
-- rollback-safe
-```
+- valid requests succeed
+- invalid requests fail predictably
+- lifecycleState initializes to Draft
+- backend-owned fields remain protected
+- API responses reflect persisted backend state
 
 ---
 
