@@ -17,6 +17,9 @@ This document exists to ensure:
 - AI-friendly implementation structure
 - maintainable Story slicing
 - predictable coordination patterns
+- deterministic operational ownership
+- compositional dashboard architecture
+- backend-owned operational cognition
 
 ---
 
@@ -63,6 +66,7 @@ This rule exists to support:
 - AI-assisted implementation
 - maintainable reviews
 - predictable sequencing
+- isolated operational responsibility
 
 ---
 
@@ -74,6 +78,50 @@ Subtasks should represent:
 - commit-sized implementation units
 - isolated implementation behavior
 - reviewable changes
+
+---
+
+# Operational Cognition Ownership
+
+The platform intentionally separates:
+
+```text
+Operational cognition through evaluation
+```
+
+from:
+
+```text
+Operational cognition through presentation
+```
+
+Backend repositories own:
+- operational evaluation
+- lifecycle validity
+- escalation semantics
+- readiness evaluation
+- release confidence logic
+- deterministic operational truth
+
+Frontend repositories own:
+- visualization
+- workflow guidance
+- interaction ergonomics
+- contextual operational emphasis
+- operational navigation support
+
+Frontend systems may:
+- visualize operational state
+- emphasize urgency
+- support rapid scanning
+- shape user interactions
+
+Frontend systems must NOT:
+- derive operational truth
+- calculate readiness
+- derive escalation semantics
+- infer unsupported operational meaning
+- duplicate backend evaluation logic
 
 ---
 
@@ -90,6 +138,15 @@ Owns:
 - API contracts
 - authorization enforcement
 - operational workflows
+- operational state evaluation
+- escalation derivation
+- release confidence evaluation
+- dashboard summary generation
+- query/read-model generation
+
+Backend systems own:
+
+> operational truth
 
 ---
 
@@ -103,10 +160,56 @@ Owns:
 - operational visualization
 - dashboard composition
 - UX behavior
+- operational cognition through presentation
 
 The frontend should remain intentionally thin.
 
+The frontend may:
+- shape backend responses into ViewModels
+- support filtering/sorting interactions
+- support workflow navigation
+- emphasize operational significance visually
+
+The frontend must NOT own:
+- business rules
+- operational calculations
+- readiness evaluation
+- lifecycle enforcement
+- escalation semantics
+- operational confidence logic
+
 Business logic belongs in backend systems.
+
+---
+
+# ApplicationDataService Responsibility
+
+Frontend orchestration should primarily occur through:
+
+```text
+ApplicationDataService
+```
+
+The ApplicationDataService layer owns:
+- API communication coordination
+- request contract generation
+- response contract translation
+- ViewModel shaping
+- frontend interaction orchestration
+- frontend-side loading/error coordination
+
+The ApplicationDataService layer should NOT:
+- evaluate operational truth
+- calculate release health
+- infer escalation state
+- duplicate backend business logic
+- invent unsupported operational semantics
+
+This preserves:
+- frontend testability
+- backend ownership clarity
+- mock/demo implementation flexibility
+- operational consistency
 
 ---
 
@@ -134,6 +237,15 @@ Business logic belongs in backend systems.
 - success/error handling
 - navigation flow
 
+The frontend may validate:
+- required fields
+- UX interaction guidance
+
+The backend remains authoritative for:
+- lifecycle initialization
+- operational validity
+- persistence correctness
+
 ---
 
 ## Feature: Release List View
@@ -144,6 +256,7 @@ Business logic belongs in backend systems.
 - filtering/query behavior
 - pagination support if needed
 - operational summary projection
+- operational horizon projection
 
 ### Web Repository Responsibilities
 
@@ -152,6 +265,14 @@ Business logic belongs in backend systems.
 - sorting UI
 - loading/error states
 - navigation interactions
+
+Operational horizons such as:
+- Current
+- Upcoming
+- Active
+- Archive
+
+should remain backend-derived query/projection concepts.
 
 ---
 
@@ -162,12 +283,16 @@ Business logic belongs in backend systems.
 - release detail query endpoint
 - release operational summary
 - related operational visibility
+- backend-derived operational state
 
 ### Web Repository Responsibilities
 
 - detail page rendering
 - operational section composition
 - interaction/navigation behavior
+- operational visualization
+
+The frontend should visualize operational meaning, not derive it.
 
 ---
 
@@ -187,6 +312,10 @@ Business logic belongs in backend systems.
 - validation UX
 - save/cancel interaction flow
 
+The frontend should not:
+- enforce lifecycle rules
+- infer unsupported operational validity
+
 ---
 
 ## Feature: Release Lifecycle Management
@@ -196,12 +325,16 @@ Business logic belongs in backend systems.
 - lifecycle transition rules
 - status validation
 - operational transition enforcement
+- lifecycle validity evaluation
 
 ### Web Repository Responsibilities
 
 - lifecycle action visibility
 - transition interactions
 - operational status rendering
+- workflow guidance
+
+Lifecycle truth remains backend-owned.
 
 ---
 
@@ -231,12 +364,18 @@ Business logic belongs in backend systems.
 - task query endpoint
 - filtering behavior
 - operational summary generation
+- overdue determination
 
 ### Web Repository Responsibilities
 
 - task rendering
 - filtering/sorting UI
 - operational visibility behavior
+- contextual highlighting
+
+The backend owns overdue evaluation.
+
+The frontend owns overdue visualization.
 
 ---
 
@@ -270,6 +409,8 @@ Business logic belongs in backend systems.
 - operational state visibility
 - interaction feedback
 
+The frontend must not independently determine task validity.
+
 ---
 
 ## Feature: Overdue Task Visibility
@@ -285,6 +426,9 @@ Business logic belongs in backend systems.
 - overdue highlighting
 - operational visibility rendering
 - filtering behavior
+- urgency emphasis
+
+Overdue operational meaning must remain backend-derived.
 
 ---
 
@@ -300,6 +444,7 @@ Business logic belongs in backend systems.
 
 - summary rendering
 - operational visualization
+- contextual display behavior
 
 ---
 
@@ -327,12 +472,14 @@ Business logic belongs in backend systems.
 
 - blocker query endpoint
 - blocker aggregation visibility
+- severity projection
 
 ### Web Repository Responsibilities
 
 - blocker rendering
 - filtering/sorting behavior
 - visibility interactions
+- severity visualization
 
 ---
 
@@ -358,11 +505,15 @@ Business logic belongs in backend systems.
 
 - severity evaluation
 - operational projections
+- escalation contribution evaluation
 
 ### Web Repository Responsibilities
 
 - severity visualization
 - operational highlighting
+- contextual visibility
+
+The frontend must not independently derive blocker severity semantics.
 
 ---
 
@@ -376,14 +527,28 @@ Business logic belongs in backend systems.
 - operational scoring
 - risk evaluation
 - health projections
+- confidence evaluation
+- readiness evaluation
+- operational trajectory interpretation
 
 ### Web Repository Responsibilities
 
 - health visualization
 - operational display
 - risk highlighting
+- contextual operational emphasis
 
 Health logic belongs in backend systems.
+
+Health should remain:
+- deterministic
+- explainable
+- operationally understandable
+
+Avoid:
+- hidden frontend scoring
+- opaque operational semantics
+- speculative AI evaluation
 
 ---
 
@@ -393,12 +558,22 @@ Health logic belongs in backend systems.
 
 - readiness evaluation
 - readiness aggregation queries
+- escalation contribution semantics
 
 ### Web Repository Responsibilities
 
 - readiness rendering
 - operational visibility
 - summary presentation
+- workflow guidance
+
+Important distinction:
+
+```text
+Waiting != At Risk
+```
+
+Dependency visibility and confidence evaluation are intentionally separate concerns.
 
 ---
 
@@ -411,12 +586,22 @@ Health logic belongs in backend systems.
 - timeline projection queries
 - milestone aggregation
 - operational date evaluation
+- operational horizon projection
 
 ### Web Repository Responsibilities
 
 - timeline rendering
 - visual sequencing
 - operational navigation
+- contextual visibility
+
+Operational horizons should remain:
+- query-oriented
+- compositional
+- backend-derived
+
+not:
+- standalone operational systems
 
 ---
 
@@ -426,11 +611,13 @@ Health logic belongs in backend systems.
 
 - milestone projections
 - operational summaries
+- sequencing visibility
 
 ### Web Repository Responsibilities
 
 - milestone visualization
 - interaction behavior
+- operational emphasis
 
 ---
 
@@ -443,14 +630,25 @@ Health logic belongs in backend systems.
 - aggregation endpoints
 - operational summaries
 - dashboard projections
+- compositional read models
 
 ### Web Repository Responsibilities
 
 - dashboard composition
 - operational card rendering
 - summary visualization
+- layered operational visibility
 
-Dashboard logic should remain compositional rather than domain-owning.
+Dashboard logic should remain:
+- compositional
+- aggregation-oriented
+- visibility-oriented
+
+Dashboard should NOT become:
+- workflow orchestration
+- operational evaluation
+- business logic ownership
+- hidden operational cognition
 
 ---
 
@@ -460,12 +658,27 @@ Dashboard logic should remain compositional rather than domain-owning.
 
 - operational state aggregation
 - dashboard-oriented query projections
+- escalation projection
+- readiness projection
 
 ### Web Repository Responsibilities
 
 - status visualization
 - operational emphasis
 - dashboard interaction flow
+- contextual grouping
+
+Operational meaning must remain backend-derived.
+
+The frontend may:
+- emphasize
+- group
+- sequence visually
+
+but must not:
+- invent operational semantics
+- derive readiness independently
+- derive escalation severity
 
 ---
 
@@ -478,12 +691,15 @@ Cross-repository coordination should occur through:
 - endpoint expectations
 - Feature-level sequencing
 - implementation readiness communication
+- query/read-model contracts
 
 Repositories should avoid:
 - shared implementation ownership
 - tightly coupled implementation details
 - frontend-owned business logic
 - duplicated operational calculations
+- hidden operational semantics
+- dashboard-owned evaluation logic
 
 ---
 
@@ -495,6 +711,7 @@ Stories should be:
 - operationally meaningful
 - reviewable
 - AI-friendly
+- ownership-clear
 
 Preferred Story examples:
 
@@ -502,11 +719,18 @@ Preferred Story examples:
 - Add release list query
 - Add release creation form
 - Add release list page
+- Add overdue task evaluation query
+- Add dashboard operational summary projection
 
 Avoid oversized Stories such as:
 - Build release management
 - Build task tracking system
 - Build dashboard
+- Add operational intelligence system
+
+Avoid cross-domain Stories such as:
+- Calculate dashboard readiness in frontend
+- Build shared operational evaluation helper
 
 ---
 
@@ -525,6 +749,16 @@ Preferred progression:
 
 Dashboard functionality should summarize real operational capabilities rather than simulate them artificially.
 
+Health evaluation should emerge from:
+- actual operational signals
+- actual workflow state
+- actual release progression
+
+not:
+- placeholder intelligence
+- speculative scoring
+- artificial AI behavior
+
 ---
 
 # Architecture Review Trigger Conditions
@@ -538,5 +772,34 @@ Architecture review is required if:
 - a module becomes extraction-worthy
 - asynchronous processing becomes operationally necessary
 - AI orchestration becomes operationally significant
+- dashboard behavior becomes workflow-owning
+- frontend operational semantics begin emerging
+- Health evaluation becomes opaque or non-deterministic
 
 Architecture should evolve intentionally rather than reactively.
+
+---
+
+# Final Repository Mapping Philosophy
+
+Repository boundaries exist to preserve:
+- operational clarity
+- deterministic ownership
+- maintainable implementation
+- explainable architecture
+- scalable decomposition
+- AI-safe implementation boundaries
+
+The frontend should help users:
+- understand operational state
+- navigate workflows
+- visualize operational concerns
+- maintain situational awareness
+
+The backend should ensure:
+- operational correctness
+- deterministic evaluation
+- explainable operational behavior
+- trustworthy operational state
+
+The system should remain operationally believable, explainable, and maintainable as implementation evolves.

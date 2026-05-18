@@ -22,6 +22,10 @@ mono_crash.*
 [Dd]ebugPublic/
 [Rr]elease/
 [Rr]eleases/
+!src/ProofWorks.ArtistOps.Api/Domain/Releases/
+!src/ProofWorks.ArtistOps.Api/Domain/Releases/**
+!tests/ProofWorks.ArtistOps.Api.Tests/Domain/Releases/
+!tests/ProofWorks.ArtistOps.Api.Tests/Domain/Releases/**
 
 [Dd]ebug/x64/
 [Dd]ebugPublic/x64/

@@ -6,5 +6,7 @@
   <Folder Name="/src/">
     <Project Path="src/ProofWorks.ArtistOps.Api/ProofWorks.ArtistOps.Api.csproj" />
   </Folder>
-  <Folder Name="/tests/" />
+  <Folder Name="/tests/">
+    <Project Path="tests/ProofWorks.ArtistOps.Api.Tests/ProofWorks.ArtistOps.Api.Tests.csproj" />
+  </Folder>
 </Solution>
